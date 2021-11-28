@@ -71,6 +71,7 @@ void print_array(unsigned char* data, unsigned int length)
 
 unsigned char find_median(unsigned char* data, unsigned int length)
 {
+  if (length <= 0) return 0;
   int median=0;
     
   // if number of elements are even
@@ -85,6 +86,8 @@ unsigned char find_median(unsigned char* data, unsigned int length)
 
 unsigned char  find_mean(unsigned char* data, unsigned int length)
 {
+  if (length <= 0) return 0;
+
   unsigned int sum = 0;
   for(unsigned int i=0; i<length; i++)
   {
@@ -96,13 +99,13 @@ unsigned char  find_mean(unsigned char* data, unsigned int length)
 
 unsigned char find_maximum(unsigned char* data, unsigned int length)
 {
-  return data[0];
+  return (length > 0)?data[0]:0;
 
 }
 
 unsigned char find_minimum(unsigned char* data, unsigned int length)
 {
-  return data[length - 1];
+  return (length > 0)?data[length - 1]:0;
 
 }
 
