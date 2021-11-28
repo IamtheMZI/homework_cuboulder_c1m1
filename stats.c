@@ -22,11 +22,19 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "stats.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
 
+// Helper Function For Sorting
+int cmpfunc (const void * a, const void * b) {
+   return (int)( *(unsigned char*)b - *(unsigned char*)a );
+}
+
+
+// MAIN 
 void main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
@@ -37,42 +45,69 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
+  sort_array(test, SIZE);
+  print_array(test, SIZE);
+  print_statistics(test, SIZE);
 }
 
 /* Add other Implementation File Code Here */
-void print_statistics(int* data, int length)
+void print_statistics(unsigned char* data, unsigned int length)
 {
+  printf("Median: %d\n",find_median(data, length));
+  printf("Mean  : %d\n",find_mean(data, length));
+  printf("Max   : %d\n",find_maximum(data, length));
+  printf("Min   : %d\n",find_minimum(data, length));
+}
+
+void print_array(unsigned char* data, unsigned int length)
+{
+  for(unsigned int i=0; i<length; i++)
+  {
+    printf("%d ", data[i]);
+  }
+  printf("\n");
 
 }
 
-void print_array(int* data, int length)
+unsigned char find_median(unsigned char* data, unsigned int length)
 {
+  int median=0;
+    
+  // if number of elements are even
+  if(length%2 == 0)
+      median = (data[(length-1)/2] + data[length/2])/2;
+  // if number of elements are odd
+  else
+      median = data[length/2];
+  
+  return median;
+}
+
+unsigned char  find_mean(unsigned char* data, unsigned int length)
+{
+  unsigned int sum = 0;
+  for(unsigned int i=0; i<length; i++)
+  {
+    sum += data[i];
+  }
+  return sum/length;
 
 }
 
-int find_median(int* data, int length)
+unsigned char find_maximum(unsigned char* data, unsigned int length)
 {
+  return data[0];
 
 }
 
-int find_mean(int* data, int length)
+unsigned char find_minimum(unsigned char* data, unsigned int length)
 {
+  return data[length - 1];
 
 }
 
-int find_maximum(int* data, int length)
+void sort_array(unsigned char* data, unsigned int length)
 {
-
-}
-
-int find_minimum(int* data, int length)
-{
-
-}
-
-void sort_array(int* data, int length)
-{
-
+  qsort(data, length, sizeof(unsigned char), cmpfunc);
 }
 

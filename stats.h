@@ -34,7 +34,7 @@
  *
  * @return void
  */
-void print_statistics(int* data, int length);
+void print_statistics(unsigned char* data, unsigned int length);
 
 /**
  * @brief 
@@ -48,7 +48,7 @@ void print_statistics(int* data, int length);
  * @return void
  */
 
-void print_array(int* data, int length); 
+void print_array(unsigned char* data, unsigned int length); 
 
 /**
  * @brief 
@@ -61,7 +61,7 @@ void print_array(int* data, int length);
  *
  * @return median of the array; 0 if array is empty
  */
-int find_median(int* data, int length); 
+unsigned char find_median(unsigned char* data, unsigned int length); 
 
 /**
  * @brief 
@@ -73,7 +73,7 @@ int find_median(int* data, int length);
  *
  * @return mean of the array; 0 if array is empty
  */
-int find_mean(int* data, int length);
+unsigned char find_mean(unsigned char* data, unsigned int length);
 
 /**
  * @brief 
@@ -85,7 +85,7 @@ int find_mean(int* data, int length);
  *
  * @return maximum of the array; 0 if array is empty
  */
-int find_maximum(int* data, int length);
+unsigned char find_maximum(unsigned char* data, unsigned int length);
 
 /**
  * @brief 
@@ -97,7 +97,7 @@ int find_maximum(int* data, int length);
  *
  * @return minimum of the array; 0 if array is empty
  */
-int find_minimum(int* data, int length);
+unsigned char find_minimum(unsigned char* data, unsigned int length);
 
 /**
  * @brief <Add Brief Description of Function Here>
@@ -113,7 +113,7 @@ int find_minimum(int* data, int length);
  *
  * @return void
  */
-void sort_array(int* data, int length);
+void sort_array(unsigned char* data, unsigned int length);
 
 
 #endif /* __STATS_H__ */
